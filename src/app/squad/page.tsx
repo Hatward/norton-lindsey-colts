@@ -1,6 +1,7 @@
 import { teams } from "@/content/squad";
 import { goalsFor } from "@/lib/stats";
 import { Shirt } from "@/components/Shirt";
+import { ACCENT_BG, ACCENT_BORDER } from "@/lib/teamAccent";
 
 export const metadata = {
   title: "Squad — Norton Lindsey Colts",
@@ -9,27 +10,31 @@ export const metadata = {
 export default function SquadPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-      <h1 className="text-3xl font-bold text-brand-navy">Squad</h1>
+      <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
+        <span className="h-2 w-2 bg-brand-yellow" />
+        Season 2026/27
+      </p>
+      <h1 className="font-display text-4xl uppercase tracking-tight text-brand-navy">
+        Squad
+      </h1>
       <p className="mt-2 max-w-2xl text-black/60">
         Norton Lindsey Colts field two U8 squads this season — The Yellows
         and The Blues.
       </p>
 
-      <div className="mt-10 space-y-14">
+      <div className="mt-10 space-y-16">
         {teams.map((team) => (
           <section key={team.id}>
-            <div className="flex flex-wrap items-center gap-3">
-              <span
-                className="h-4 w-4 rounded-full border border-black/10"
-                style={{ backgroundColor: team.shirt.body }}
-              />
-              <h2 className="text-2xl font-bold text-brand-navy">
+            <div
+              className={`clip-card flex flex-wrap items-center justify-between gap-3 border-2 border-brand-navy px-6 py-5 ${ACCENT_BG[team.id]}`}
+            >
+              <h2 className="font-display text-3xl uppercase tracking-tight text-brand-navy">
                 {team.teamName}
               </h2>
+              <p className="font-mono text-xs font-semibold uppercase tracking-wide text-brand-navy/70">
+                {team.league} &middot; {team.playDay}
+              </p>
             </div>
-            <p className="mt-1 text-sm font-medium text-black/50">
-              {team.league} &middot; {team.playDay}
-            </p>
 
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
               {[...team.players]
@@ -39,21 +44,21 @@ export default function SquadPage() {
                   return (
                     <div
                       key={`${team.id}-${player.number}`}
-                      className="flex flex-col items-center gap-2 rounded-2xl border border-black/5 bg-white p-5 text-center shadow-sm transition-shadow hover:shadow-md"
+                      className={`clip-card-sm flex flex-col items-center gap-2 border-2 ${ACCENT_BORDER[team.id]} bg-white p-5 text-center transition-colors hover:bg-brand-cream`}
                     >
                       <Shirt
                         body={team.shirt.body}
                         trim={team.shirt.trim}
                         outline={team.shirt.outline}
                         number={player.number}
-                        className="h-16 w-16"
+                        className="h-20 w-20"
                       />
                       <div>
                         <p className="font-semibold text-brand-navy">
                           {player.displayName}
                         </p>
                         {goals > 0 && (
-                          <p className="mt-0.5 text-xs font-medium text-black/50">
+                          <p className="mt-0.5 font-mono text-xs tracking-wide text-black/50">
                             {goals} goal{goals > 1 ? "s" : ""}
                           </p>
                         )}

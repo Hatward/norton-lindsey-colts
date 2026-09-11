@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { matchReports } from "@/content/matchReports";
 import { withBasePath } from "@/lib/basePath";
+import { teamAccentFrom, ACCENT_BG } from "@/lib/teamAccent";
 
 export function generateStaticParams() {
   return matchReports.map((report) => ({ slug: report.slug }));
@@ -30,17 +31,18 @@ export default async function MatchReportPage({
   const { slug } = await params;
   const report = matchReports.find((r) => r.slug === slug);
   if (!report) notFound();
+  const accent = teamAccentFrom(report.teamName);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
       <Link
         href="/match-reports"
-        className="text-sm font-semibold text-brand-navy hover:underline"
+        className="text-sm font-semibold uppercase tracking-wide text-brand-navy hover:underline"
       >
         &larr; All match reports
       </Link>
 
-      <div className="mt-4 overflow-hidden rounded-2xl">
+      <div className="clip-card mt-4 overflow-hidden border-2 border-brand-navy">
         <div className="relative aspect-16/9 w-full">
           <Image
             src={withBasePath(report.image)}
@@ -52,21 +54,23 @@ export default async function MatchReportPage({
         </div>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-3">
-        <span className="rounded-full bg-brand-yellow px-4 py-1.5 text-lg font-bold text-brand-navy">
-          {report.scoreFor}-{report.scoreAgainst}
-        </span>
-        <span className="text-sm font-medium text-black/50">
-          {report.venue}
-        </span>
+      <div className="mt-6 flex flex-wrap items-end gap-4 border-b-4 border-brand-navy pb-4">
+        <p className="font-display text-5xl leading-none text-brand-navy">
+          {report.scoreFor}&ndash;{report.scoreAgainst}
+        </p>
+        <div>
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
+            <span className={`h-2 w-2 ${ACCENT_BG[accent]}`} />
+            {report.venue}
+          </p>
+          <h1 className="font-display text-2xl uppercase tracking-tight text-brand-navy sm:text-3xl">
+            {report.teamName} vs {report.opponent}
+          </h1>
+        </div>
       </div>
 
-      <h1 className="mt-3 text-2xl font-bold text-brand-navy sm:text-3xl">
-        {report.teamName} vs {report.opponent}
-      </h1>
-
       {report.scorers.length > 0 && (
-        <p className="mt-2 text-sm text-black/60">
+        <p className="mt-4 font-mono text-sm text-black/60">
           <span className="font-semibold text-black/80">Goals: </span>
           {report.scorers
             .map((s) => `${s.name}${s.goals > 1 ? ` (${s.goals})` : ""}`)
@@ -81,22 +85,24 @@ export default async function MatchReportPage({
       </div>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl bg-brand-cream p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-navy/60">
+        <div className="clip-card-sm border-2 border-brand-navy bg-brand-cream p-5">
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
+            <span className="h-2 w-2 bg-brand-navy" />
             Parents&rsquo; Player of the Match
           </p>
-          <p className="mt-1 text-lg font-bold text-brand-navy">
+          <p className="mt-2 font-display text-xl uppercase tracking-tight text-brand-navy">
             {report.parentsPOTM.name}
           </p>
           <p className="mt-2 text-sm text-black/70">
             {report.parentsPOTM.note}
           </p>
         </div>
-        <div className="rounded-2xl bg-brand-cream p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-navy/60">
+        <div className="clip-card-sm border-2 border-brand-yellow bg-brand-cream p-5">
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
+            <span className="h-2 w-2 bg-brand-yellow" />
             Coaches&rsquo; Player of the Match
           </p>
-          <p className="mt-1 text-lg font-bold text-brand-navy">
+          <p className="mt-2 font-display text-xl uppercase tracking-tight text-brand-navy">
             {report.coachesPOTM.name}
           </p>
           <p className="mt-2 text-sm text-black/70">

@@ -10,12 +10,39 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-anton);
 
   --color-brand-navy: #14205c;
   --color-brand-navy-light: #22317e;
   --color-brand-yellow: #ffcd00;
   --color-brand-yellow-light: #ffe066;
   --color-brand-cream: #f7f7f5;
+
+  --color-team-yellows: var(--color-brand-yellow);
+  --color-team-blues: #2f5dff;
+  --color-ink: #0b0f2b;
+}
+
+@utility clip-card {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0 calc(100% - 20px)
+  );
+}
+
+@utility clip-card-sm {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
 }
 
 body {

@@ -1,28 +1,34 @@
 import Link from "next/link";
 import type { MatchReport } from "@/content/matchReports";
+import { teamAccentFrom, ACCENT_BG } from "@/lib/teamAccent";
 
 export function MatchReportCard({ report }: { report: MatchReport }) {
+  const accent = teamAccentFrom(report.teamName);
+
   return (
     <Link
       href={`/match-reports/${report.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
+      className="group clip-card flex flex-col overflow-hidden border-2 border-brand-navy bg-white transition-colors hover:border-brand-yellow"
     >
+      <div className={`h-2 w-full ${ACCENT_BG[accent]}`} />
       <div className="flex items-center justify-between bg-brand-navy px-5 py-4 text-white">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-white/60">
+          <p className="font-mono text-xs uppercase tracking-widest text-white/60">
             {report.teamName}
           </p>
-          <p className="text-base font-semibold">vs {report.opponent}</p>
+          <p className="text-base font-semibold uppercase tracking-wide">
+            vs {report.opponent}
+          </p>
         </div>
-        <div className="flex h-12 min-w-12 items-center justify-center rounded-full bg-brand-yellow px-3 text-lg font-bold text-brand-navy">
-          {report.scoreFor}-{report.scoreAgainst}
-        </div>
+        <p className="font-display text-3xl leading-none text-brand-yellow">
+          {report.scoreFor}&ndash;{report.scoreAgainst}
+        </p>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <p className="text-sm leading-relaxed text-black/70">
           {report.summary}
         </p>
-        <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-brand-navy transition-transform group-hover:translate-x-0.5">
+        <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-brand-navy transition-transform group-hover:translate-x-0.5">
           Read full report
           <svg
             xmlns="http://www.w3.org/2000/svg"

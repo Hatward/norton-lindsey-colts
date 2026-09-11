@@ -14,13 +14,15 @@ export function PhotoGallery() {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <div className="grid grid-cols-3 gap-4">
         {photos.map((photo, i) => (
           <button
             key={photo.src}
             type="button"
             onClick={() => setActive(i)}
-            className="group relative aspect-square overflow-hidden rounded-2xl bg-black/5"
+            className={`clip-card group relative overflow-hidden border-2 border-brand-navy bg-black/5 transition-colors hover:border-brand-yellow ${
+              i === 0 ? "col-span-2 aspect-4/3" : "col-span-1 aspect-square"
+            }`}
           >
             <Image
               src={withBasePath(photo.src)}
@@ -43,7 +45,7 @@ export function PhotoGallery() {
             type="button"
             aria-label="Close"
             onClick={() => setActive(null)}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+            className="clip-card-sm absolute right-4 top-4 flex h-10 w-10 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +60,7 @@ export function PhotoGallery() {
               <path d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div className="relative h-full max-h-[80vh] w-full max-w-3xl">
+          <div className="relative h-full max-h-[80vh] w-full max-w-3xl border-2 border-brand-yellow">
             <Image
               src={withBasePath(photos[active].src)}
               alt={photos[active].alt}
