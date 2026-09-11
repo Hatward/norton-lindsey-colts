@@ -36,7 +36,7 @@ export default function Home() {
       <section className="bg-obsidian relative flex min-h-[100svh] items-end overflow-hidden text-white">
         <Image
           src={withBasePath("/images/home-hero.jpg")}
-          alt="Norton Lindsey Colts goalkeeper clearing the ball on matchday"
+          alt="Norton Lindsey Colts player striking the ball on matchday"
           fill
           priority
           className="object-cover object-center"
