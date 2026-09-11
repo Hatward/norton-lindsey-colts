@@ -1,12 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { withBasePath } from "@/lib/basePath";
 import { photos } from "@/content/gallery";
 
+const SWIPE_THRESHOLD = 50;
+
 export function PhotoGallery() {
   const [active, setActive] = useState<number | null>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const showPrev = useCallback(() => {
     setActive((i) => (i === null ? null : (i - 1 + photos.length) % photos.length));
@@ -139,6 +142,25 @@ export function PhotoGallery() {
           </button>
           <div
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={(e) => {
+              const t = e.touches[0];
+              touchStart.current = { x: t.clientX, y: t.clientY };
+            }}
+            onTouchEnd={(e) => {
+              const start = touchStart.current;
+              touchStart.current = null;
+              if (!start) return;
+              const t = e.changedTouches[0];
+              const deltaX = t.clientX - start.x;
+              const deltaY = t.clientY - start.y;
+              if (
+                Math.abs(deltaX) < SWIPE_THRESHOLD ||
+                Math.abs(deltaX) < Math.abs(deltaY)
+              )
+                return;
+              if (deltaX > 0) showPrev();
+              else showNext();
+            }}
             className="relative flex max-h-[80vh] max-w-full items-center justify-center"
           >
             <Image
