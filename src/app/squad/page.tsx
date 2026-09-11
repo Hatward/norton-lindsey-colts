@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { teams } from "@/content/squad";
 import { goalsFor } from "@/lib/stats";
-import { Shirt } from "@/components/Shirt";
+import { withBasePath } from "@/lib/basePath";
 import { ACCENT_BG, ACCENT_BORDER } from "@/lib/teamAccent";
 
 export const metadata = {
@@ -46,13 +47,17 @@ export default function SquadPage() {
                       key={`${team.id}-${player.number}`}
                       className={`clip-card-sm flex flex-col items-center gap-2 border-2 ${ACCENT_BORDER[team.id]} bg-white p-5 text-center transition-colors hover:bg-brand-cream`}
                     >
-                      <Shirt
-                        body={team.shirt.body}
-                        trim={team.shirt.trim}
-                        outline={team.shirt.outline}
-                        number={player.number}
-                        className="h-20 w-20"
-                      />
+                      <div className="relative h-24 w-24">
+                        <Image
+                          src={withBasePath(team.shirtImage)}
+                          alt={`${team.teamName} shirt`}
+                          fill
+                          className="object-contain"
+                        />
+                        <span className="absolute -right-1 -bottom-1 flex h-6 w-6 items-center justify-center border-2 border-white bg-brand-navy font-mono text-xs font-bold text-white">
+                          {player.number}
+                        </span>
+                      </div>
                       <div>
                         <p className="font-semibold text-brand-navy">
                           {player.displayName}

@@ -10,7 +10,7 @@ export type Team = {
   teamName: string;
   league: string;
   playDay: string;
-  shirt: { body: string; trim: string; outline?: string };
+  shirtImage: string;
   players: Player[];
 };
 
@@ -22,7 +22,7 @@ export const teams: Team[] = [
     teamName: "The Yellows",
     league: "Mid Warwickshire Football League",
     playDay: "Saturdays",
-    shirt: { body: "#FFCD00", trim: "#14205C" },
+    shirtImage: "/images/shirt-yellows.jpg",
     players: [
       { name: "Reign", displayName: "Reign Webb", number: 1 },
       { name: "Hugo", displayName: "Hugo Copeland", number: 5 },
@@ -38,7 +38,7 @@ export const teams: Team[] = [
     teamName: "The Blues",
     league: "Nuneaton and Bedworth Junior League",
     playDay: "Sundays",
-    shirt: { body: "#FFFFFF", trim: "#14205C", outline: "#c9cdd6" },
+    shirtImage: "/images/shirt-blues.jpg",
     players: [
       { name: "Reign", displayName: "Reign Webb", number: 1 },
       { name: "Woody", displayName: "Woody Hopkins", number: 4 },
