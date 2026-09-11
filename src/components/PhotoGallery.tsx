@@ -75,13 +75,32 @@ export function PhotoGallery() {
           role="dialog"
           aria-modal="true"
           onClick={() => setActive(null)}
+          onTouchStart={(e) => {
+            const t = e.touches[0];
+            touchStart.current = { x: t.clientX, y: t.clientY };
+          }}
+          onTouchEnd={(e) => {
+            const start = touchStart.current;
+            touchStart.current = null;
+            if (!start) return;
+            const t = e.changedTouches[0];
+            const deltaX = t.clientX - start.x;
+            const deltaY = t.clientY - start.y;
+            if (
+              Math.abs(deltaX) < SWIPE_THRESHOLD ||
+              Math.abs(deltaX) < Math.abs(deltaY)
+            )
+              return;
+            if (deltaX > 0) showPrev();
+            else showNext();
+          }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
         >
           <button
             type="button"
             aria-label="Close"
             onClick={() => setActive(null)}
-            className="clip-card-sm absolute right-4 top-4 flex h-10 w-10 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
+            className="clip-card-sm absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +122,7 @@ export function PhotoGallery() {
               e.stopPropagation();
               showPrev();
             }}
-            className="clip-card-sm absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
+            className="clip-card-sm absolute left-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +144,7 @@ export function PhotoGallery() {
               e.stopPropagation();
               showNext();
             }}
-            className="clip-card-sm absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
+            className="clip-card-sm absolute right-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -142,25 +161,6 @@ export function PhotoGallery() {
           </button>
           <div
             onClick={(e) => e.stopPropagation()}
-            onTouchStart={(e) => {
-              const t = e.touches[0];
-              touchStart.current = { x: t.clientX, y: t.clientY };
-            }}
-            onTouchEnd={(e) => {
-              const start = touchStart.current;
-              touchStart.current = null;
-              if (!start) return;
-              const t = e.changedTouches[0];
-              const deltaX = t.clientX - start.x;
-              const deltaY = t.clientY - start.y;
-              if (
-                Math.abs(deltaX) < SWIPE_THRESHOLD ||
-                Math.abs(deltaX) < Math.abs(deltaY)
-              )
-                return;
-              if (deltaX > 0) showPrev();
-              else showNext();
-            }}
             className="relative flex max-h-[80vh] max-w-full items-center justify-center"
           >
             <Image
