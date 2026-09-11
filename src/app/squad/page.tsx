@@ -37,7 +37,7 @@ export default function SquadPage() {
               </p>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[...team.players]
                 .sort((a, b) => a.number - b.number)
                 .map((player) => {
@@ -47,7 +47,7 @@ export default function SquadPage() {
                       key={`${team.id}-${player.number}`}
                       className={`clip-card-sm flex flex-col items-center gap-2 border-2 ${ACCENT_BORDER[team.id]} bg-white p-5 text-center transition-colors hover:bg-brand-cream`}
                     >
-                      <div className="relative h-24 w-24">
+                      <div className="relative h-20 w-20">
                         <Image
                           src={withBasePath(team.shirtImage)}
                           alt={`${team.teamName} shirt`}
@@ -67,6 +67,36 @@ export default function SquadPage() {
                             {goals} goal{goals > 1 ? "s" : ""}
                           </p>
                         )}
+                      </div>
+
+                      <div className="mt-2 w-full space-y-1.5 border-t border-brand-navy/10 pt-3 text-left">
+                        <p className="flex items-start gap-1.5 text-xs text-black/70">
+                          <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-brand-yellow" />
+                          <span>
+                            <span className="font-mono font-semibold uppercase tracking-wide text-brand-navy/60">
+                              Idol:{" "}
+                            </span>
+                            {player.favouritePlayer}
+                          </span>
+                        </p>
+                        <p className="flex items-start gap-1.5 text-xs text-black/70">
+                          <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-brand-yellow" />
+                          <span>
+                            <span className="font-mono font-semibold uppercase tracking-wide text-brand-navy/60">
+                              Go-to skill:{" "}
+                            </span>
+                            {player.signatureSkill}
+                          </span>
+                        </p>
+                        <p className="flex items-start gap-1.5 text-xs text-black/70">
+                          <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-brand-yellow" />
+                          <span>
+                            <span className="font-mono font-semibold uppercase tracking-wide text-brand-navy/60">
+                              Loves:{" "}
+                            </span>
+                            {player.favouriteThing}
+                          </span>
+                        </p>
                       </div>
                     </div>
                   );
