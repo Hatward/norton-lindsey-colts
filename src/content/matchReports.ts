@@ -52,7 +52,7 @@ export const matchReports: MatchReport[] = [
       name: "Noah Kelly",
       note: "A brilliant all-round display, assured in defence and dangerous up front. Every time we've seen him in the last few weeks he's gone up a level.",
     },
-    image: "/images/match-1.jpg",
+    image: "/images/match-2.jpg",
   },
   {
     slug: "yellows-vs-whitnash",
@@ -78,6 +78,6 @@ export const matchReports: MatchReport[] = [
       name: "Jake",
       note: "An energetic display leading the line. He worked tirelessly, battled for every ball and was unfortunate not to score after hitting the post and being denied by some good saves. Most impressive of all was the way he kept his head and remained positive throughout.",
     },
-    image: "/images/match-2.jpg",
+    image: "/images/match-1.jpg",
   },
 ];

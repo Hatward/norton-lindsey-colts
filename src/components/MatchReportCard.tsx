@@ -7,7 +7,7 @@ export function MatchReportCard({ report }: { report: MatchReport }) {
 
   return (
     <Link
-      href={`/match-reports/${report.slug}`}
+      href={`/match-reports#${report.slug}`}
       className="group clip-card flex flex-col overflow-hidden border-2 border-brand-navy bg-white transition-colors hover:border-brand-yellow"
     >
       <div className={`h-2 w-full ${ACCENT_BG[accent]}`} />

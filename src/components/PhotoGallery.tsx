@@ -4,13 +4,28 @@ import Image from "next/image";
 import { useState } from "react";
 import { withBasePath } from "@/lib/basePath";
 
-const photos = [
-  { src: "/images/match-1.jpg", alt: "Colts U7 Blues in action" },
-  { src: "/images/match-2.jpg", alt: "Colts U7 Yellows in action" },
-];
+const photos: { src: string; alt: string }[] = [];
 
 export function PhotoGallery() {
   const [active, setActive] = useState<number | null>(null);
+
+  if (photos.length === 0) {
+    return (
+      <div className="clip-card flex flex-col items-center gap-2 border-2 border-brand-navy bg-brand-cream px-6 py-16 text-center">
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
+          <span className="h-2 w-2 bg-brand-yellow" />
+          Coming Soon
+        </p>
+        <p className="font-display text-2xl uppercase tracking-tight text-brand-navy">
+          Photos on the way
+        </p>
+        <p className="max-w-sm text-sm text-black/60">
+          Matchday and touchline photos will be added here throughout the
+          season.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -22,7 +22,7 @@ export const teams: Team[] = [
     teamName: "The Yellows",
     league: "Mid Warwickshire Football League",
     playDay: "Saturdays",
-    shirtImage: "/images/shirt-yellows.jpg",
+    shirtImage: "/images/shirt-yellows.png",
     players: [
       { name: "Reign", displayName: "Reign Webb", number: 1 },
       { name: "Hugo", displayName: "Hugo Copeland", number: 5 },
@@ -38,7 +38,7 @@ export const teams: Team[] = [
     teamName: "The Blues",
     league: "Nuneaton and Bedworth Junior League",
     playDay: "Sundays",
-    shirtImage: "/images/shirt-blues.jpg",
+    shirtImage: "/images/shirt-blues.png",
     players: [
       { name: "Reign", displayName: "Reign Webb", number: 1 },
       { name: "Woody", displayName: "Woody Hopkins", number: 4 },

@@ -20,3 +20,8 @@ export const ACCENT_TEXT: Record<TeamAccent, string> = {
   yellows: "text-team-yellows",
   blues: "text-team-blues",
 };
+
+export const ACCENT_SHIRT: Record<TeamAccent, string> = {
+  yellows: "/images/shirt-yellows.png",
+  blues: "/images/shirt-blues.png",
+};
