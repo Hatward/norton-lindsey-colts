@@ -4,6 +4,12 @@ export function teamAccentFrom(teamName: string): TeamAccent {
   return teamName.toLowerCase().includes("yellow") ? "yellows" : "blues";
 }
 
+// Saturday fixtures are the Yellows, Sunday fixtures are the Blues.
+export function teamAccentFromDate(iso: string): TeamAccent {
+  const day = new Date(`${iso}T00:00:00`).getDay();
+  return day === 6 ? "yellows" : "blues";
+}
+
 // Tailwind can't see dynamically-interpolated class names at build time —
 // always resolve through these maps rather than templating `team-${accent}`.
 export const ACCENT_BORDER: Record<TeamAccent, string> = {

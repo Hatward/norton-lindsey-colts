@@ -9,6 +9,7 @@ import { withBasePath } from "@/lib/basePath";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/club", label: "Club" },
+  { href: "/colts-code", label: "The Colt's Code" },
   { href: "/match-reports", label: "Match Reports" },
   { href: "/squad", label: "Squad" },
   { href: "/gallery", label: "Gallery" },

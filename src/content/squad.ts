@@ -3,6 +3,8 @@ export type Player = {
   name: string;
   displayName: string;
   number: number;
+  photo: string;
+  shirtImage: string;
   favouritePlayer: string;
   signatureSkill: string;
   favouriteThing: string;
@@ -13,7 +15,6 @@ export type Team = {
   teamName: string;
   league: string;
   playDay: string;
-  shirtImage: string;
   players: Player[];
 };
 
@@ -25,12 +26,13 @@ export const teams: Team[] = [
     teamName: "The Yellows",
     league: "Mid Warwickshire Football League",
     playDay: "Saturdays",
-    shirtImage: "/images/shirt-yellows.png",
     players: [
       {
         name: "Reign",
         displayName: "Reign Webb",
         number: 1,
+        photo: "/images/squad/profiles/reign.jpg",
+        shirtImage: "/images/squad/shirt-yellows-1.png",
         favouritePlayer: "Tatsuhiro Sakamoto",
         signatureSkill: "360",
         favouriteThing: "Making saves",
@@ -39,6 +41,8 @@ export const teams: Team[] = [
         name: "Hugo",
         displayName: "Hugo Copeland",
         number: 5,
+        photo: "/images/squad/profiles/hugo.jpg",
+        shirtImage: "/images/squad/shirt-yellows-5.png",
         favouritePlayer: "Desire Doue",
         signatureSkill: "360",
         favouriteThing: "Playing against harder opponents",
@@ -47,6 +51,8 @@ export const teams: Team[] = [
         name: "Roman",
         displayName: "Roman Webb",
         number: 6,
+        photo: "/images/squad/profiles/roman.jpg",
+        shirtImage: "/images/squad/shirt-yellows-6.png",
         favouritePlayer: "Cristiano Ronaldo",
         signatureSkill: "360",
         favouriteThing: "Being tough",
@@ -55,6 +61,8 @@ export const teams: Team[] = [
         name: "Taylor",
         displayName: "Taylor Cohn",
         number: 8,
+        photo: "/images/squad/profiles/taylor.jpg",
+        shirtImage: "/images/squad/shirt-yellows-8.png",
         favouritePlayer: "CR7",
         signatureSkill: "Step Overs",
         favouriteThing: "Scoring goals",
@@ -63,6 +71,8 @@ export const teams: Team[] = [
         name: "Jake",
         displayName: "Jake Hayward",
         number: 9,
+        photo: "/images/squad/profiles/jake.jpg",
+        shirtImage: "/images/squad/shirt-yellows-9.png",
         favouritePlayer: "Wayne Rooney",
         signatureSkill: "Drag then rabona",
         favouriteThing: "Playing football with my friends",
@@ -71,6 +81,8 @@ export const teams: Team[] = [
         name: "Max",
         displayName: "Max Eaton",
         number: 10,
+        photo: "/images/squad/profiles/max.jpg",
+        shirtImage: "/images/squad/shirt-yellows-10.png",
         favouritePlayer: "James Maddison",
         signatureSkill: "Step over shift",
         favouriteThing: "I like celebrating with the team and they're my friends",
@@ -79,6 +91,8 @@ export const teams: Team[] = [
         name: "Arthur",
         displayName: "Arthur Warren",
         number: 11,
+        photo: "/images/squad/profiles/arthur.jpg",
+        shirtImage: "/images/squad/shirt-yellows-11.png",
         favouritePlayer: "Hajji Wright",
         signatureSkill: "Ronaldo Chop",
         favouriteThing: "Having lots of mates and that we all play as a team",
@@ -90,12 +104,13 @@ export const teams: Team[] = [
     teamName: "The Blues",
     league: "Nuneaton and Bedworth Junior League",
     playDay: "Sundays",
-    shirtImage: "/images/shirt-blues.png",
     players: [
       {
         name: "Reign",
         displayName: "Reign Webb",
         number: 1,
+        photo: "/images/squad/profiles/reign.jpg",
+        shirtImage: "/images/squad/shirt-blues-1.png",
         favouritePlayer: "Tatsuhiro Sakamoto",
         signatureSkill: "360",
         favouriteThing: "Making saves",
@@ -104,6 +119,8 @@ export const teams: Team[] = [
         name: "Woody",
         displayName: "Woody Hopkins",
         number: 4,
+        photo: "/images/squad/profiles/woody.jpg",
+        shirtImage: "/images/squad/shirt-blues-4.png",
         favouritePlayer: "Cristiano Ronaldo",
         signatureSkill: "Ronaldo chop",
         favouriteThing: "Winning matches",
@@ -112,6 +129,8 @@ export const teams: Team[] = [
         name: "Roman",
         displayName: "Roman Webb",
         number: 6,
+        photo: "/images/squad/profiles/roman.jpg",
+        shirtImage: "/images/squad/shirt-blues-6.png",
         favouritePlayer: "Cristiano Ronaldo",
         signatureSkill: "360",
         favouriteThing: "Being tough",
@@ -120,6 +139,8 @@ export const teams: Team[] = [
         name: "Ziah",
         displayName: "Ziah Crowley",
         number: 7,
+        photo: "/images/squad/profiles/ziah.jpg",
+        shirtImage: "/images/squad/shirt-blues-7.png",
         favouritePlayer: "Messi",
         signatureSkill: "Maradona",
         favouriteThing: "Having friends",
@@ -128,6 +149,8 @@ export const teams: Team[] = [
         name: "Jake",
         displayName: "Jake Hayward",
         number: 9,
+        photo: "/images/squad/profiles/jake.jpg",
+        shirtImage: "/images/squad/shirt-blues-9.png",
         favouritePlayer: "Wayne Rooney",
         signatureSkill: "Drag then rabona",
         favouriteThing: "Playing football with my friends",
@@ -136,6 +159,8 @@ export const teams: Team[] = [
         name: "George",
         displayName: "George Lee",
         number: 12,
+        photo: "/images/squad/profiles/george.jpg",
+        shirtImage: "/images/squad/shirt-blues-12.png",
         favouritePlayer: "Lamine Yamal",
         signatureSkill: "Step overs",
         favouriteThing: "Playing matches with my friends",
@@ -144,6 +169,8 @@ export const teams: Team[] = [
         name: "Noah",
         displayName: "Noah Kelly",
         number: 20,
+        photo: "/images/squad/profiles/noah.jpg",
+        shirtImage: "/images/squad/shirt-blues-20.png",
         favouritePlayer: "Phil Foden",
         signatureSkill: "Drop the shoulder then take them on the outside",
         favouriteThing: "All of my friends",

@@ -7,6 +7,7 @@ export type MatchReport = {
   slug: string;
   teamName: string;
   opponent: string;
+  date: string;
   result: "W" | "D" | "L";
   scoreFor: number;
   scoreAgainst: number;
@@ -24,6 +25,7 @@ export const matchReports: MatchReport[] = [
     slug: "blues-vs-grove-pavillion",
     teamName: "Colts U7 Blues",
     opponent: "Grove Pavillion FC",
+    date: "2026-09-06",
     result: "W",
     scoreFor: 11,
     scoreAgainst: 0,
@@ -57,7 +59,8 @@ export const matchReports: MatchReport[] = [
   {
     slug: "yellows-vs-whitnash",
     teamName: "Colts U7 Yellows",
-    opponent: "Whitnash FC",
+    opponent: "Whitnash FC U8s",
+    date: "2026-09-05",
     result: "W",
     scoreFor: 2,
     scoreAgainst: 1,

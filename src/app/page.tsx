@@ -5,7 +5,9 @@ import { MatchReportCard } from "@/components/MatchReportCard";
 import { withBasePath } from "@/lib/basePath";
 
 export default function Home() {
-  const latest = [...matchReports].reverse().slice(0, 2);
+  const latest = [...matchReports]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 2);
 
   return (
     <div>

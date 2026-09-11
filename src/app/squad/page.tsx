@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { teams } from "@/content/squad";
-import { goalsFor } from "@/lib/stats";
 import { withBasePath } from "@/lib/basePath";
 import { ACCENT_BG, ACCENT_BORDER } from "@/lib/teamAccent";
 
@@ -41,7 +40,6 @@ export default function SquadPage() {
               {[...team.players]
                 .sort((a, b) => a.number - b.number)
                 .map((player) => {
-                  const goals = goalsFor(player.name);
                   return (
                     <div
                       key={`${team.id}-${player.number}`}
@@ -49,24 +47,24 @@ export default function SquadPage() {
                     >
                       <div className="relative h-20 w-20">
                         <Image
-                          src={withBasePath(team.shirtImage)}
-                          alt={`${team.teamName} shirt`}
+                          src={withBasePath(player.photo)}
+                          alt={player.displayName}
                           fill
-                          className="object-contain"
+                          className="clip-card-sm object-cover"
                         />
-                        <span className="absolute -right-1 -bottom-1 flex h-6 w-6 items-center justify-center border-2 border-white bg-brand-navy font-mono text-xs font-bold text-white">
-                          {player.number}
-                        </span>
+                        <div className="absolute -right-3 -bottom-3 h-10 w-10">
+                          <Image
+                            src={withBasePath(player.shirtImage)}
+                            alt={`Shirt number ${player.number}`}
+                            fill
+                            className="object-contain drop-shadow-md"
+                          />
+                        </div>
                       </div>
                       <div>
                         <p className="font-semibold text-brand-navy">
                           {player.displayName}
                         </p>
-                        {goals > 0 && (
-                          <p className="mt-0.5 font-mono text-xs tracking-wide text-black/50">
-                            {goals} goal{goals > 1 ? "s" : ""}
-                          </p>
-                        )}
                       </div>
 
                       <div className="mt-2 w-full space-y-1.5 border-t border-brand-navy/10 pt-3 text-left">
