@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { matchReports } from "@/content/matchReports";
 import { MatchReportCard } from "@/components/MatchReportCard";
+import { withBasePath } from "@/lib/basePath";
 
 export default function Home() {
   const latest = [...matchReports].reverse().slice(0, 2);
@@ -12,7 +13,7 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,205,0,0.15),transparent_50%),radial-gradient(circle_at_80%_60%,rgba(255,205,0,0.1),transparent_50%)]" />
         <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-24">
           <Image
-            src="/images/badge.png"
+            src={withBasePath("/images/badge.png")}
             alt="Norton Lindsey Colts badge"
             width={120}
             height={120}

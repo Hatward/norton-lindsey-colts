@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 const photos = [
   { src: "/images/match-1.jpg", alt: "Colts U7 Blues in action" },
@@ -22,7 +23,7 @@ export function PhotoGallery() {
             className="group relative aspect-square overflow-hidden rounded-2xl bg-black/5"
           >
             <Image
-              src={photo.src}
+              src={withBasePath(photo.src)}
               alt={photo.alt}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -59,7 +60,7 @@ export function PhotoGallery() {
           </button>
           <div className="relative h-full max-h-[80vh] w-full max-w-3xl">
             <Image
-              src={photos[active].src}
+              src={withBasePath(photos[active].src)}
               alt={photos[active].alt}
               fill
               className="object-contain"

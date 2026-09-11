@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { matchReports } from "@/content/matchReports";
+import { withBasePath } from "@/lib/basePath";
 
 export function generateStaticParams() {
   return matchReports.map((report) => ({ slug: report.slug }));
@@ -42,7 +43,7 @@ export default async function MatchReportPage({
       <div className="mt-4 overflow-hidden rounded-2xl">
         <div className="relative aspect-16/9 w-full">
           <Image
-            src={report.image}
+            src={withBasePath(report.image)}
             alt={`${report.teamName} vs ${report.opponent}`}
             fill
             className="object-cover"

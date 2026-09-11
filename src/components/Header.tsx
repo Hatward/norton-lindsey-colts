@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -25,7 +26,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/images/badge.png"
+            src={withBasePath("/images/badge.png")}
             alt="Norton Lindsey Colts badge"
             width={44}
             height={44}
