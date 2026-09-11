@@ -21,6 +21,7 @@
   --color-team-yellows: var(--color-brand-yellow);
   --color-team-blues: #2f5dff;
   --color-ink: #0b0f2b;
+  --color-obsidian: #0a0a0a;
 }
 
 @utility clip-card {
@@ -43,6 +44,29 @@
     12px 100%,
     0 calc(100% - 12px)
   );
+}
+
+@utility glow-yellow {
+  background: radial-gradient(
+    circle,
+    rgb(255 205 0 / 35%) 0%,
+    rgb(255 205 0 / 0%) 70%
+  );
+}
+
+@utility glow-blue {
+  background: radial-gradient(
+    circle,
+    rgb(47 93 255 / 35%) 0%,
+    rgb(47 93 255 / 0%) 70%
+  );
+}
+
+@utility grain-overlay {
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  mix-blend-mode: overlay;
+  opacity: 0.15;
 }
 
 body {
