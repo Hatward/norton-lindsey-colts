@@ -1,13 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { withBasePath } from "@/lib/basePath";
-
-const photos: { src: string; alt: string }[] = [];
+import { photos } from "@/content/gallery";
 
 export function PhotoGallery() {
   const [active, setActive] = useState<number | null>(null);
+
+  const showPrev = useCallback(() => {
+    setActive((i) => (i === null ? null : (i - 1 + photos.length) % photos.length));
+  }, []);
+
+  const showNext = useCallback(() => {
+    setActive((i) => (i === null ? null : (i + 1) % photos.length));
+  }, []);
+
+  useEffect(() => {
+    if (active === null) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active, showPrev, showNext]);
 
   if (photos.length === 0) {
     return (
@@ -75,12 +93,60 @@ export function PhotoGallery() {
               <path d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div className="relative h-full max-h-[80vh] w-full max-w-3xl border-2 border-brand-yellow">
+          <button
+            type="button"
+            aria-label="Previous photo"
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrev();
+            }}
+            className="clip-card-sm absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Next photo"
+            onClick={(e) => {
+              e.stopPropagation();
+              showNext();
+            }}
+            className="clip-card-sm absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border-2 border-white/40 bg-black/40 text-white hover:border-brand-yellow hover:text-brand-yellow"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-5 w-5"
+            >
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </button>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative flex max-h-[80vh] max-w-full items-center justify-center"
+          >
             <Image
               src={withBasePath(photos[active].src)}
               alt={photos[active].alt}
-              fill
-              className="object-contain"
+              width={photos[active].width}
+              height={photos[active].height}
+              className="h-auto max-h-[80vh] w-auto max-w-full border-2 border-brand-yellow object-contain"
             />
           </div>
         </div>
