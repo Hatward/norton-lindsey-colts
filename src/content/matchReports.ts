@@ -7,6 +7,9 @@ export type MatchReport = {
   slug: string;
   teamName: string;
   opponent: string;
+  opponentBadge?: string;
+  competition: string;
+  matchweek: number;
   date: string;
   result: "W" | "D" | "L";
   scoreFor: number;
@@ -25,6 +28,9 @@ export const matchReports: MatchReport[] = [
     slug: "yellows-vs-hillmorton-dragons",
     teamName: "Colts U7 Yellows",
     opponent: "Hillmorton Dragons U8s",
+    opponentBadge: "/images/hilmorton.png",
+    competition: "Mid Warwickshire Football League",
+    matchweek: 2,
     date: "2026-09-12",
     result: "L",
     scoreFor: 4,
@@ -58,6 +64,9 @@ export const matchReports: MatchReport[] = [
     slug: "blues-vs-grove-pavillion",
     teamName: "Colts U7 Blues",
     opponent: "Grove Pavillion FC",
+    opponentBadge: "/images/grove-pavillion.jpg",
+    competition: "Nuneaton and Bedworth Junior League",
+    matchweek: 1,
     date: "2026-09-06",
     result: "W",
     scoreFor: 11,
@@ -93,6 +102,9 @@ export const matchReports: MatchReport[] = [
     slug: "yellows-vs-whitnash",
     teamName: "Colts U7 Yellows",
     opponent: "Whitnash FC U8s",
+    opponentBadge: "/images/whitnash.jpg",
+    competition: "Mid Warwickshire Football League",
+    matchweek: 1,
     date: "2026-09-05",
     result: "W",
     scoreFor: 2,

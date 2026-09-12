@@ -3,7 +3,7 @@ import { matchReports } from "@/content/matchReports";
 import { fixtures } from "@/content/fixtures";
 import { withBasePath } from "@/lib/basePath";
 import { formatMatchDate } from "@/lib/date";
-import { teamAccentFrom, teamAccentFromDate, ACCENT_BG, ACCENT_SHIRT } from "@/lib/teamAccent";
+import { teamAccentFrom, teamAccentFromDate, ACCENT_BG } from "@/lib/teamAccent";
 
 export const metadata = {
   title: "Match Reports — Norton Lindsey Colts",
@@ -56,14 +56,51 @@ export default function MatchReportsPage() {
                   className={`absolute top-1.5 -left-[calc(2rem+10px)] h-5 w-5 border-2 border-brand-navy sm:-left-[calc(2.5rem+10px)] ${ACCENT_BG[accent]}`}
                 />
 
-                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
-                  <span className={`h-2 w-2 ${ACCENT_BG[accent]}`} />
-                  {formatMatchDate(fixture.date)} &middot; Colts U7{" "}
-                  {accent === "yellows" ? "Yellows" : "Blues"}
+                <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
+                  {fixture.competition} &middot; Matchweek {fixture.matchweek}
                 </p>
-                <h2 className="mt-1 border-b-4 border-brand-navy pb-3 font-display text-xl uppercase tracking-tight text-brand-navy sm:text-2xl">
-                  ({fixture.venue === "Home" ? "H" : "A"}) vs {fixture.opponent}
-                </h2>
+                <div className="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-b-4 border-brand-navy pb-4 sm:gap-6">
+                  <div className="flex items-center justify-end gap-3 text-right">
+                    <span className="font-display text-base uppercase tracking-tight text-brand-navy sm:text-xl">
+                      Colts U7 {accent === "yellows" ? "Yellows" : "Blues"}
+                    </span>
+                    <div className="relative h-10 w-10 shrink-0 sm:h-14 sm:w-14">
+                      <Image
+                        src={withBasePath("/images/badge.png")}
+                        alt="Norton Lindsey Colts badge"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-black/50 sm:text-xs">
+                      {formatMatchDate(fixture.date)}
+                    </p>
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-black/40 sm:text-xs">
+                      {fixture.venue}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    {fixture.opponentBadge ? (
+                      <div className="relative h-10 w-10 shrink-0 sm:h-14 sm:w-14">
+                        <Image
+                          src={withBasePath(fixture.opponentBadge)}
+                          alt={`${fixture.opponent} badge`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-10 w-10 shrink-0 rounded-full border-2 border-brand-navy/20 sm:h-14 sm:w-14" />
+                    )}
+                    <span className="font-display text-base uppercase tracking-tight text-brand-navy sm:text-xl">
+                      {fixture.opponent}
+                    </span>
+                  </div>
+                </div>
                 <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-navy/50">
                   Upcoming Fixture
                 </p>
@@ -94,25 +131,58 @@ export default function MatchReportsPage() {
               </div>
 
               <div className="mt-6">
-                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
-                  <span className={`h-2 w-2 ${ACCENT_BG[accent]}`} />
-                  {formatMatchDate(report.date)} &middot; {report.venue}
+                <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy/60">
+                  {report.competition} &middot; Matchweek {report.matchweek}
                 </p>
-                <div className="mt-1 flex flex-wrap items-center gap-3 border-b-4 border-brand-navy pb-3">
-                  <div className="relative h-12 w-16 shrink-0">
-                    <Image
-                      src={withBasePath(ACCENT_SHIRT[accent])}
-                      alt={`${report.teamName} shirt`}
-                      fill
-                      className="object-contain"
-                    />
+                <div className="mt-3 grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-b-4 border-brand-navy pb-4 sm:gap-6">
+                  <div className="flex items-center justify-end gap-3 text-right">
+                    <span className="font-display text-base uppercase tracking-tight text-brand-navy sm:text-xl">
+                      {report.teamName}
+                    </span>
+                    <div className="relative h-10 w-10 shrink-0 sm:h-14 sm:w-14">
+                      <Image
+                        src={withBasePath("/images/badge.png")}
+                        alt="Norton Lindsey Colts badge"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  <p className="font-display text-4xl leading-none text-brand-navy">
-                    {report.scoreFor}&ndash;{report.scoreAgainst}
-                  </p>
-                  <h2 className="font-display text-xl uppercase tracking-tight text-brand-navy sm:text-2xl">
-                    {report.teamName} vs {report.opponent}
-                  </h2>
+
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <p className="font-display text-3xl leading-none text-brand-navy sm:text-5xl">
+                      {report.scoreFor}
+                    </p>
+                    <div className="text-center">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-black/50 sm:text-xs">
+                        {formatMatchDate(report.date)}
+                      </p>
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-black/40 sm:text-xs">
+                        Full Time &middot; {report.venue}
+                      </p>
+                    </div>
+                    <p className="font-display text-3xl leading-none text-brand-navy sm:text-5xl">
+                      {report.scoreAgainst}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    {report.opponentBadge ? (
+                      <div className="relative h-10 w-10 shrink-0 sm:h-14 sm:w-14">
+                        <Image
+                          src={withBasePath(report.opponentBadge)}
+                          alt={`${report.opponent} badge`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-10 w-10 shrink-0 rounded-full border-2 border-brand-navy/20 sm:h-14 sm:w-14" />
+                    )}
+                    <span className="font-display text-base uppercase tracking-tight text-brand-navy sm:text-xl">
+                      {report.opponent}
+                    </span>
+                  </div>
                 </div>
 
                 {report.scorers.length > 0 && (
