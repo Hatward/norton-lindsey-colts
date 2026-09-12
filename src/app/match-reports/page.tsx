@@ -2,7 +2,7 @@ import Image from "next/image";
 import { matchReports } from "@/content/matchReports";
 import { fixtures } from "@/content/fixtures";
 import { withBasePath } from "@/lib/basePath";
-import { formatMatchDate } from "@/lib/date";
+import { formatMatchDate, formatMatchDateShort } from "@/lib/date";
 import { teamAccentFrom, teamAccentFromDate, ACCENT_BG } from "@/lib/teamAccent";
 
 export const metadata = {
@@ -76,7 +76,12 @@ export default function MatchReportsPage() {
 
                   <div className="text-center">
                     <p className="text-[11px] font-semibold uppercase tracking-wide text-black/50 sm:text-xs">
-                      {formatMatchDate(fixture.date)}
+                      <span className="sm:hidden">
+                        {formatMatchDateShort(fixture.date)}
+                      </span>
+                      <span className="hidden sm:inline">
+                        {formatMatchDate(fixture.date)}
+                      </span>
                     </p>
                     <p className="text-[11px] font-semibold uppercase tracking-wide text-black/40 sm:text-xs">
                       {fixture.venue}
@@ -155,7 +160,12 @@ export default function MatchReportsPage() {
                     </p>
                     <div className="text-center">
                       <p className="text-[11px] font-semibold uppercase tracking-wide text-black/50 sm:text-xs">
-                        {formatMatchDate(report.date)}
+                        <span className="sm:hidden">
+                          {formatMatchDateShort(report.date)}
+                        </span>
+                        <span className="hidden sm:inline">
+                          {formatMatchDate(report.date)}
+                        </span>
                       </p>
                       <p className="text-[11px] font-semibold uppercase tracking-wide text-black/40 sm:text-xs">
                         Full Time &middot; {report.venue}
