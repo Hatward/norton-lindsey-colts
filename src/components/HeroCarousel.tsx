@@ -12,6 +12,7 @@ export function HeroCarousel({
   alt: string;
 }) {
   const [index, setIndex] = useState(0);
+  const [loaded, setLoaded] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     if (images.length <= 1) return;
@@ -30,8 +31,13 @@ export function HeroCarousel({
           alt={i === 0 ? alt : ""}
           fill
           priority={i === 0}
+          onLoad={() =>
+            setLoaded((prev) =>
+              prev.has(i) ? prev : new Set(prev).add(i),
+            )
+          }
           className={`object-cover object-center transition-opacity duration-1000 ${
-            i === index ? "opacity-100" : "opacity-0"
+            i === index && loaded.has(i) ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
