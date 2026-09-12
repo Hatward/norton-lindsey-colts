@@ -5,7 +5,7 @@ export function Footer() {
         <p className="font-display text-xl uppercase tracking-tight text-brand-navy">
           Norton Lindsey Colts
         </p>
-        <p className="text-sm text-black/60">Coached by Darren and Jamie</p>
+        <p className="text-sm text-black/60">Coached by Jamie and Darren</p>
         <p className="font-mono text-xs uppercase tracking-wide text-black/40">
           &copy; {new Date().getFullYear()} Norton Lindsey Colts
         </p>

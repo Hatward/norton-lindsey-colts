@@ -20,7 +20,7 @@ const CLUB_FACTS = [
   },
   {
     title: "League Matches",
-    body: "Today the Colts compete across regional divisions like the Mid Warwickshire Football League, the Nuneaton and Bedworth Junior League, and the Central Warwickshire Youth Football League.",
+    body: "Today the Colts compete across regional divisions like the Mid Warwickshire Football League and the Nuneaton and Bedworth Junior League.",
   },
 ];
 
