@@ -22,6 +22,39 @@ export type MatchReport = {
 
 export const matchReports: MatchReport[] = [
   {
+    slug: "yellows-vs-hillmorton-dragons",
+    teamName: "Colts U7 Yellows",
+    opponent: "Hillmorton Dragons U8s",
+    date: "2026-09-12",
+    result: "L",
+    scoreFor: 4,
+    scoreAgainst: 9,
+    venue: "Home",
+    scorers: [
+      { name: "Hugo", goals: 2 },
+      { name: "Jake", goals: 1 },
+      { name: "Arthur", goals: 1 },
+    ],
+    summary:
+      "A brave 9-4 defeat for the Colts U7 Yellows against a strong Tier 1 Hillmorton Dragons side, a year older and much bigger, but the boys never stopped competing.",
+    body: [
+      "This was, without question, the toughest test the Yellows have faced all season. Hillmorton Dragons are a Tier 1 side who have been together for two years, a year older than our boys and considerably bigger — and it showed. But so did the character in our team. The Dragons' own manager came over after the final whistle and told us this was the best footballing side they'd ever seen. High praise indeed, and every bit deserved.",
+      "We tried something new today, too. Max spent large parts of the game dropping into a deeper, quarterback-style role in the middle of the park, staying calm on the ball and spraying passes out wide — exactly what we asked of him. Taylor also had a spell in the same role and did well with it. It's something we'll keep coming back to, especially against bigger, stronger opposition, because when the boys get their heads up and pass, they're a real handful.",
+      "Reign was peppered all game and stood up to every bit of it, pulling off some really special saves. His composure stood out too — at one point the ball rolled to him after an accidental deflection, and rather than panic he simply took a touch and played it away calmly, showing how far his game has come. Arthur was excellent, a big step up from recent weeks with his energy levels, his willingness to get on the ball and pass, some real graft in the tackle, and he got his reward with a goal of his own. Jake had a tough afternoon out of his usual central role, asked to play somewhere unfamiliar to help the team, and while he wasn't thrilled about it at first, he got on with the job and capped it off with a superb free kick that flew in.",
+      "Hugo was everywhere, and it was brilliant to see him get his rewards with two well-taken goals. Last week he created chance after chance without quite pulling the trigger — this week he backed himself and finished. Roman had one of his busiest afternoons of the season, called into action time and again and bailing the team out more than once, continuing to improve week on week. Taylor came up against a very good opposition defender and still found ways to entertain, full of tricks and energy throughout.",
+      "The scoreline doesn't tell the full story. Our boys are playing up an age group already, and fixtures threw them into a Tier 1 side, the toughest group in the whole division, for only their second game of the season. They went toe to toe, had spells of real quality, and were told by the opposition themselves that they were the better footballing team. Heads up, boys — that's a result we build on.",
+    ],
+    parentsPOTM: {
+      name: "Hugo",
+      note: "Determined all match, tracking back to help out and finding space for his teammates going forward. Great aggression, strong tackles, and two well-deserved goals.",
+    },
+    coachesPOTM: {
+      name: "Reign",
+      note: "A very busy afternoon between the sticks, and every time he was called upon he did his job and got us out of trouble. He keeps getting better every single week.",
+    },
+    image: "/images/hilmorton.jpg",
+  },
+  {
     slug: "blues-vs-grove-pavillion",
     teamName: "Colts U7 Blues",
     opponent: "Grove Pavillion FC",
