@@ -21,6 +21,7 @@ export type MatchReport = {
   parentsPOTM: { name: string; note: string };
   coachesPOTM: { name: string; note: string };
   image: string;
+  imagePosition?: string;
 };
 
 export const matchReports: MatchReport[] = [
@@ -63,6 +64,7 @@ export const matchReports: MatchReport[] = [
       note: "Accomplished in defence beyond his years, full of running and tricks up front, and rock solid in goal with some eye-catching saves — superb in every position he played.",
     },
     image: "/images/match-3.jpg",
+    imagePosition: "object-[center_20%]",
   },
   {
     slug: "yellows-vs-hillmorton-dragons",

@@ -131,7 +131,7 @@ export default function MatchReportsPage() {
                   src={withBasePath(report.image)}
                   alt={`${report.teamName} vs ${report.opponent}`}
                   fill
-                  className="object-cover"
+                  className={`object-cover ${report.imagePosition ?? ""}`}
                 />
               </div>
 
