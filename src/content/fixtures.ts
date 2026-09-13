@@ -10,15 +10,6 @@ export type Fixture = {
 
 export const fixtures: Fixture[] = [
   {
-    slug: "vs-chetwynd-lions",
-    opponent: "Chetwynd Lions",
-    opponentBadge: "/images/chetwynd.png",
-    competition: "Nuneaton and Bedworth Junior League",
-    matchweek: 2,
-    venue: "Home",
-    date: "2026-09-13",
-  },
-  {
     slug: "vs-sky-blues-community-u9-girls",
     opponent: "Sky Blues in the Community U9 Girls",
     opponentBadge: "/images/skyblues.jpeg",

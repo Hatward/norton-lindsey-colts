@@ -25,6 +25,46 @@ export type MatchReport = {
 
 export const matchReports: MatchReport[] = [
   {
+    slug: "blues-vs-chetwynd-lions",
+    teamName: "Colts U7 Blues",
+    opponent: "Chetwynd Lions",
+    opponentBadge: "/images/chetwynd.png",
+    competition: "Nuneaton and Bedworth Junior League",
+    matchweek: 2,
+    date: "2026-09-13",
+    result: "W",
+    scoreFor: 8,
+    scoreAgainst: 0,
+    venue: "Home",
+    scorers: [
+      { name: "Ziah", goals: 4 },
+      { name: "George", goals: 2 },
+      { name: "Jake", goals: 2 },
+    ],
+    summary:
+      "An emphatic 8-0 win for the Colts U7 Blues against Chetwynd Lions.",
+    body: [
+      "Absolutely scintillating stuff from the Colts today against an inexperienced but physical Chetwynd Lions side. They didn't really lay a glove on us as the boys kept them quiet all match.",
+      "Noah was assured in his stint in defence, brave to both win his tackles and show for the ball as an option. He made some great runs in the attacking third. The only way Chetwynd could stop him was by fouling him. Unlucky not to score his penalty but kept his head up and kept going.",
+      "George was fantastic all over the pitch and didn't put a foot wrong in any position. Some world class passing out from the back was a particular highlight, cutting the opposition apart with some zipped diagonal balls. Did very well to get his two goals too.",
+      "It was a bit of a quiet one for Reign but when he was called upon he was superb, making some good stops and passing it out quickly to keep the play going.",
+      "Jake took his chances well, tracked back to help out in defence, and kept getting his head up more — something he's been working on. He did a stint for us in goal with some safe hands and good distribution.",
+      "Ziah had his shooting boots on today! He won and converted a penalty, scored a hat-trick of well taken goals, and showed lots of running, tenacity and determination both in attack and defence. Could have had a POTM award today.",
+      "Roman was faultless in defence with some strong tackling and incisive passing into the final third. In his stint in midfield he worked hard and laid on some fantastic assists for his teammates. He was on the end of some extremely questionable refereeing but kept playing his game the right way.",
+      "Woody was superb in all areas of the pitch today. Accomplished in defence, reading the play well and knocking the ball around beyond his years. Up front he was full of running and tricks, made some great passes into the box, and was very unlucky not to get on the score sheet. He was solid in goal too with some eye-catching saves!",
+      "Another great weekend for the Colts with two brilliant performances! Thanks as always for the support from the touchlines. Darren and Jamie",
+    ],
+    parentsPOTM: {
+      name: "Roman",
+      note: "Faultless in defence with some strong tackling and incisive passing into the final third, then drove things on from midfield with some fantastic assists — all while brushing off some very questionable refereeing.",
+    },
+    coachesPOTM: {
+      name: "Woody",
+      note: "Accomplished in defence beyond his years, full of running and tricks up front, and rock solid in goal with some eye-catching saves — superb in every position he played.",
+    },
+    image: "/images/match-3.jpg",
+  },
+  {
     slug: "yellows-vs-hillmorton-dragons",
     teamName: "Colts U7 Yellows",
     opponent: "Hillmorton Dragons U8s",
