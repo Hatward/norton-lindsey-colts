@@ -67,7 +67,7 @@ export default function Home() {
             <h1 className="font-display mt-4 text-[3.25rem] leading-[0.85] tracking-tight uppercase sm:text-[6rem] lg:text-[8rem]">
               Norton Lindsey
               <br />
-              <span className="text-brand-yellow">Colts</span>
+              U7 <span className="text-brand-yellow">Colts</span>
             </h1>
             <div className="mt-6 flex max-w-lg items-center gap-4">
               <span className="h-10 w-1 shrink-0 bg-brand-yellow" />

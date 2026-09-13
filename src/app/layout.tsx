@@ -21,7 +21,7 @@ const anton = Anton({
 });
 
 export const metadata: Metadata = {
-  title: "Norton Lindsey Colts",
+  title: "Norton Lindsey U7 Colts",
   description:
     "Match reports, squad, and photos for Norton Lindsey Colts youth football team.",
 };
