@@ -5,9 +5,9 @@ import { Reveal } from "@/components/Reveal";
 import { withBasePath } from "@/lib/basePath";
 
 const HERO_IMAGES = [
-  "/images/home-hero.jpg",
-  "/images/home-hero2.jpg",
-  "/images/home-hero3.jpg",
+  { src: "/images/home-hero.jpg", mobilePosition: "object-[58%_center]" },
+  { src: "/images/home-hero2.jpg", mobilePosition: "object-[62%_center]" },
+  { src: "/images/home-hero3.jpg", mobilePosition: "object-[53%_center]" },
 ];
 
 const SHOWCASE = [

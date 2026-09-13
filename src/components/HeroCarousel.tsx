@@ -8,7 +8,7 @@ export function HeroCarousel({
   images,
   alt,
 }: {
-  images: string[];
+  images: { src: string; mobilePosition?: string }[];
   alt: string;
 }) {
   const [index, setIndex] = useState(0);
@@ -24,7 +24,7 @@ export function HeroCarousel({
 
   return (
     <>
-      {images.map((src, i) => (
+      {images.map(({ src, mobilePosition }, i) => (
         <Image
           key={src}
           src={withBasePath(src)}
@@ -36,9 +36,9 @@ export function HeroCarousel({
               prev.has(i) ? prev : new Set(prev).add(i),
             )
           }
-          className={`object-cover object-center transition-opacity duration-1000 ${
-            i === index && loaded.has(i) ? "opacity-100" : "opacity-0"
-          }`}
+          className={`object-cover transition-opacity duration-1000 ${
+            mobilePosition ? `${mobilePosition} sm:object-center` : "object-center"
+          } ${i === index && loaded.has(i) ? "opacity-100" : "opacity-0"}`}
         />
       ))}
     </>
