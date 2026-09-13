@@ -7,7 +7,7 @@ import { withBasePath } from "@/lib/basePath";
 const HERO_IMAGES = [
   { src: "/images/home-hero.jpg", mobilePosition: "object-[58%_center]" },
   { src: "/images/home-hero2.jpg", mobilePosition: "object-[62%_center]" },
-  { src: "/images/home-hero3.jpg", mobilePosition: "object-[53%_center]" },
+  { src: "/images/home-hero3.jpg", mobilePosition: "object-[66%_center]" },
 ];
 
 const SHOWCASE = [
@@ -59,7 +59,7 @@ export default function Home() {
           className="glow-blue absolute -right-24 top-1/3 h-[26rem] w-[26rem] rounded-full blur-3xl"
         />
 
-        <div className="relative mx-auto w-full max-w-5xl px-4 pt-32 pb-16 sm:px-6 sm:pb-20">
+        <div className="relative mx-auto w-full max-w-5xl px-4 pt-32 pb-6 sm:px-6 sm:pb-20">
           <Reveal>
             <p className="font-mono text-xs tracking-[0.3em] text-white/60 uppercase">
               Est. Grassroots &middot; U7s Playing U8s Football
@@ -83,7 +83,7 @@ export default function Home() {
       <section className="bg-obsidian relative overflow-hidden pb-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <Reveal>
-            <div className="grid gap-4 pt-16 sm:grid-cols-3">
+            <div className="grid gap-4 pt-8 sm:grid-cols-3 sm:pt-16">
               {SHOWCASE.map((tile) => {
                 const content = (
                   <>
