@@ -27,4 +27,22 @@ export const fixtures: Fixture[] = [
     venue: "Home",
     date: "2026-09-20",
   },
+  {
+    slug: "vs-amington-diamonds",
+    opponent: "Amington Diamonds U8",
+    opponentBadge: "/images/amington.jpg",
+    competition: "Nuneaton and Bedworth Junior League",
+    matchweek: 3,
+    venue: "Home",
+    date: "2026-10-04",
+  },
+  {
+    slug: "vs-vision-phoenix",
+    opponent: "Vision Phoenix U8",
+    opponentBadge: "/images/vision.jpg",
+    competition: "Nuneaton and Bedworth Junior League",
+    matchweek: 4,
+    venue: "Home",
+    date: "2026-10-11",
+  },
 ];
