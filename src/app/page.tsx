@@ -7,7 +7,7 @@ import { withBasePath } from "@/lib/basePath";
 const HERO_IMAGES = [
   { src: "/images/home-hero.jpg", mobilePosition: "object-[58%_center]" },
   { src: "/images/home-hero2.jpg", mobilePosition: "object-[62%_center]" },
-  { src: "/images/home-hero3.jpg", mobilePosition: "object-[66%_center]" },
+  { src: "/images/home-hero3.jpg", mobilePosition: "object-[35%_center]" },
 ];
 
 const SHOWCASE = [
