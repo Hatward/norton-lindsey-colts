@@ -51,12 +51,12 @@ export const matchReports: MatchReport[] = [
       "It was a bit of a quiet one for Reign but when he was called upon he was superb, making some good stops and passing it out quickly to keep the play going.",
       "Jake took his chances well, tracked back to help out in defence, and kept getting his head up more — something he's been working on. He did a stint for us in goal with some safe hands and good distribution.",
       "Ziah had his shooting boots on today! He won and converted a penalty, scored a hat-trick of well taken goals, and showed lots of running, tenacity and determination both in attack and defence. Could have had a POTM award today.",
-      "Roman was faultless in defence with some strong tackling and incisive passing into the final third. In his stint in midfield he worked hard and laid on some fantastic assists for his teammates. He was on the end of some extremely questionable refereeing but kept playing his game the right way.",
+      "Roman was faultless in defence with some strong tackling and incisive passing into the final third. In his stint in midfield he worked hard and laid on some fantastic assists for his teammates.",
       "Woody was superb in all areas of the pitch today. Accomplished in defence, reading the play well and knocking the ball with confidence. Up front he was full of running and tricks, made some great passes into the box, and was very unlucky not to get on the score sheet. He was solid in goal too with some eye-catching saves!",
     ],
     parentsPOTM: {
       name: "Roman",
-      note: "Faultless in defence with some strong tackling and incisive passing into the final third, then drove things on from midfield with some fantastic assists — all while brushing off some very questionable refereeing.",
+      note: "Faultless in defence with some strong tackling and incisive passing into the final third, then drove things on from midfield with some fantastic assists.",
     },
     coachesPOTM: {
       name: "Woody",
